@@ -22,7 +22,7 @@ from typing import Dict, List
 
 import torch
 from PIL.Image import Image
-from transformers import LlamaTokenizerFast
+from transformers import LlamaTokenizer
 from transformers.processing_utils import ProcessorMixin
 
 from janus.janusflow.models.image_processing_vlm import VLMImageProcessor
@@ -71,7 +71,7 @@ class BatchedVLChatProcessorOutput(DictOutput):
 
 class VLChatProcessor(ProcessorMixin):
     image_processor_class = "AutoImageProcessor"
-    tokenizer_class = ("LlamaTokenizer", "LlamaTokenizerFast")
+    tokenizer_class = ("LlamaTokenizer", "LlamaTokenizer")
 
     attributes = ["image_processor", "tokenizer"]
 
@@ -84,7 +84,7 @@ class VLChatProcessor(ProcessorMixin):
     def __init__(
         self,
         image_processor: VLMImageProcessor,
-        tokenizer: LlamaTokenizerFast,
+        tokenizer: LlamaTokenizer,
         image_tag: str = "<image_placeholder>",
         image_start_tag: str = "<begin_of_image>",
         image_end_tag: str = "<end_of_image>",
